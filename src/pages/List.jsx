@@ -35,6 +35,16 @@ class LinkedList {
     }
     return elements;
   }
+
+  toLinkedListArray() {
+    const elements = [];
+    let current = this.head;
+    while (current) {
+      elements.push(`${current.value} -> ${current.next ? current.next.value : 'null'}`);
+      current = current.next;
+    }
+    return elements;
+  }
 }
 
 const actionTypes = {
@@ -64,14 +74,22 @@ export const List = () => {
       setNumber(''); // Limpa o campo do formulário após adicionar o elemento
     }
   };
+  const handleRemove = () => {
+  // Implemente a lógica para remover o número da estrutura de dados (lista, árvore, grafo)
+  // Por exemplo, para uma lista:
+  if (number) {
+    dispatch({ type: 'REMOVE_ELEMENT', payload: number });
+    setNumber(''); // Limpa o campo de entrada após a remoção
+  }
+};
 
   return (
-    <div>
-      <NumberForm number={number} setNumber={setNumber} handleSubmit={handleSubmit} />
-      <div className='flex flex-col gap-4'>
-        {linkedList.toArray().map((node, index) => (
-          <div key={index}>
-            {node}
+    <div className='flex flex-col gap-3'>
+      <NumberForm number={number} setNumber={setNumber} handleSubmit={handleSubmit} handleRemove={handleRemove} />
+      <div className='flex flex-row gap-4'>
+        {linkedList.toLinkedListArray().map((nodeRepresentation, index) => (
+          <div key={index} className='bg-gray-700 text-white p-2 rounded shadow-md'>
+            {nodeRepresentation}
           </div>
         ))}
       </div>

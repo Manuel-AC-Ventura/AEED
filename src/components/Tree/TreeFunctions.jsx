@@ -40,3 +40,31 @@ export const postorderTraversal = (root, result = []) => {
   }
   return result;
 };
+
+export const removeFromTree = (root, value) => {
+  if (!root) {
+    return null;
+  }
+  if (value < root.value) {
+    root.left = removeFromTree(root.left, value);
+  } else if (value > root.value) {
+    root.right = removeFromTree(root.right, value);
+  } else {
+    if (!root.left) {
+      return root.right;
+    } else if (!root.right) {
+      return root.left;
+    }
+    root.value = findMinValue(root.right);
+    root.right = removeFromTree(root.right, root.value);
+  }
+  return root;
+};
+
+const findMinValue = (node) => {
+  let current = node;
+  while (current.left) {
+    current = current.left;
+  }
+  return current.value;
+};

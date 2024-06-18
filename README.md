@@ -1,8 +1,14 @@
-# React + Vite
+# Instalação e Execução da Aplicação
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este guia passo a passo mostra como instalar e executar a aplicação React utilizando Vite.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de começar, certifique-se de que você tem o Node.js e o npm (ou yarn) instalados em seu sistema. Você pode verificar isso executando `node -v` e `npm -v` (ou `yarn -v`) no terminal.
+
+## Passo 1: Criar um Novo Projeto
+
+Para criar um novo projeto, abra o terminal e execute o seguinte comando:
+
+```bash
+npm create vite@latest nome-do-seu-projeto -- --template react
